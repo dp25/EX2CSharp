@@ -86,9 +86,48 @@ namespace B24_EX02
             }
         }
 
+        /// <summary>
+        /// Draws the current status of the board
+        /// </summary>
         internal void DrawBoardGame()
         {
+            StringBuilder memoryGameBoard = new StringBuilder();
+            memoryGameBoard.Append("     ");
+            for (char col = 'A'; col < 'A' + r_NumOfBoardColumns; col++)
+            {
+                memoryGameBoard.Append($"  {col}   ");
+            }
+            int lengthOfBoardRow = memoryGameBoard.Length;
+            int numOfSpaces = 5;
+            memoryGameBoard.AppendLine();
+            memoryGameBoard.Append("     ");
+            memoryGameBoard.Append('=', lengthOfBoardRow - numOfSpaces);
+            memoryGameBoard.AppendLine();
 
+            for (int row = 1; row <= this.r_NumOfBoardRows; row++) 
+            {
+                memoryGameBoard.Append($"{row}  |"); 
+
+                for (int col = 0;  col < r_NumOfBoardColumns; col++)
+                {
+                    if (this.m_GameBoard[row, col].PairOfCardsDiscovered || this.m_GameBoard[row,col].IsFaceUp) 
+                    {
+                        memoryGameBoard.AppendFormat("  {0}", this.m_GameBoard[row,col].Cardvalue);
+                        memoryGameBoard.Append("  |");
+                    }
+                    else
+                    {
+                        memoryGameBoard.Append("     |");
+                    }
+                }
+
+                memoryGameBoard.AppendLine();
+                memoryGameBoard.Append("     ");
+                memoryGameBoard.Append('=', lengthOfBoardRow - numOfSpaces);
+                memoryGameBoard.AppendLine();
+            }
+
+            Console.WriteLine(memoryGameBoard.ToString());
         }
 
     }
