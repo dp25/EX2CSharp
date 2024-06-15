@@ -92,27 +92,27 @@ namespace B24_EX02
         internal void DrawBoardGame()
         {
             StringBuilder memoryGameBoard = new StringBuilder();
-            memoryGameBoard.Append("     ");
+            memoryGameBoard.Append("    ");
             for (char col = 'A'; col < 'A' + r_NumOfBoardColumns; col++)
             {
                 memoryGameBoard.Append($"  {col}   ");
             }
             int lengthOfBoardRow = memoryGameBoard.Length;
-            int numOfSpaces = 5;
+            int numOfSpaces = 3;
             memoryGameBoard.AppendLine();
-            memoryGameBoard.Append("     ");
+            memoryGameBoard.Append("   ");
             memoryGameBoard.Append('=', lengthOfBoardRow - numOfSpaces);
             memoryGameBoard.AppendLine();
 
-            for (int row = 1; row <= this.r_NumOfBoardRows; row++) 
+            for (int row = 0; row < this.r_NumOfBoardRows; row++) 
             {
-                memoryGameBoard.Append($"{row}  |"); 
+                memoryGameBoard.Append($"{row + 1}  |"); 
 
-                for (int col = 0;  col < r_NumOfBoardColumns; col++)
+                for (int col = 0; col < r_NumOfBoardColumns; col++)
                 {
-                    if (this.m_GameBoard[row, col].PairOfCardsDiscovered || this.m_GameBoard[row,col].IsFaceUp) 
+                    if (this.m_GameBoard[row, col].PairOfCardsDiscovered || this.m_GameBoard[row,col].IsCardChosen) 
                     {
-                        memoryGameBoard.AppendFormat("  {0}", this.m_GameBoard[row,col].Cardvalue);
+                        memoryGameBoard.AppendFormat("  {0}", this.m_GameBoard[row,col].CardValue);
                         memoryGameBoard.Append("  |");
                     }
                     else
@@ -122,7 +122,7 @@ namespace B24_EX02
                 }
 
                 memoryGameBoard.AppendLine();
-                memoryGameBoard.Append("     ");
+                memoryGameBoard.Append("   ");
                 memoryGameBoard.Append('=', lengthOfBoardRow - numOfSpaces);
                 memoryGameBoard.AppendLine();
             }

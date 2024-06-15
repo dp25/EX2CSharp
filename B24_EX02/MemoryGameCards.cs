@@ -13,15 +13,19 @@ namespace B24_EX02
         private readonly int r_CardColumnIndex;
         private bool m_CardIsFaceUp;
         private bool m_PairOfCardsDiscovered;
+        private bool m_IsCardChosen;
 
         internal MemoryGameCards(T i_CardValue, int i_CardRowIndex, int i_CardColumnIndex) 
         {
-            this.r_CardValue = i_CardValue;
-            this.r_CardRowIndex = i_CardRowIndex;
-            this.r_CardColumnIndex = i_CardColumnIndex;
+            r_CardValue = i_CardValue;
+            r_CardRowIndex = i_CardRowIndex;
+            r_CardColumnIndex = i_CardColumnIndex;
+            m_CardIsFaceUp = false;
+            m_PairOfCardsDiscovered = false;
+            m_IsCardChosen = false;
         }
 
-        internal T Cardvalue
+        internal T CardValue
         {
             get 
             { 
@@ -68,6 +72,19 @@ namespace B24_EX02
             set 
             {
                 m_CardIsFaceUp = value;
+            }
+        }
+
+        internal bool IsCardChosen
+        {
+            get
+            {
+                return m_IsCardChosen;
+            }
+
+            set
+            {
+                m_IsCardChosen = value;
             }
         }
     }

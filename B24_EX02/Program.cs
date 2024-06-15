@@ -4,7 +4,7 @@
     {
         public static void Main()
         {
-
+            MemoryGameManager.GameManager(null, null, false);
         }
     }
 }

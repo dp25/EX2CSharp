@@ -10,7 +10,7 @@ namespace B24_EX02
     {
         private readonly MemoryGameBoard<T> r_BoardGame;
         private readonly List<MemoryGameCards<T>> r_NotRevealedCards;
-        private readonly List<MemoryGameCards<T>> r_CardsForComputer;
+        private readonly List<MemoryGameCards<T>> r_CardsForComputerAIPlayer;
         private readonly MemoryGameCards<T>[] r_RevealedCards;
         private Player m_FirstPlayer;
         private Player m_SecondPlayer;
@@ -24,7 +24,7 @@ namespace B24_EX02
             m_NumberOfDiscoveredPairs = 0;
             r_RevealedCards = new MemoryGameCards<T>[((i_NumRows * i_NumColumns) / 2)];
             r_NotRevealedCards = getCardsForComputerPlayer();
-            r_CardsForComputer = new List<MemoryGameCards<T>>();
+            r_CardsForComputerAIPlayer = new List<MemoryGameCards<T>>();
 
 
         }
@@ -92,11 +92,11 @@ namespace B24_EX02
             }
         }
 
-        internal List<MemoryGameCards<T>> CardsForComputer
+        internal List<MemoryGameCards<T>> CardsForComputerAIPlayer
         {
             get
             {
-                return r_CardsForComputer;
+                return r_CardsForComputerAIPlayer;
             }
         }
 
