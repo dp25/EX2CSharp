@@ -12,7 +12,7 @@ namespace B24_EX02
 
         internal static void RevealCards(Player i_Player, MemoryGame<char> i_CurrentGame, MemoryGameCards<char> i_FirstCard, MemoryGameCards<char> i_SecondCard)
         {
-            if (i_FirstCard == i_SecondCard)
+            if (i_FirstCard.CardValue == i_SecondCard.CardValue)
             {
                 i_Player.PlayerPoints++;
                 i_CurrentGame.NumberOfDiscoveredPairs++;
