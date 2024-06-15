@@ -42,7 +42,7 @@ namespace B24_EX02
             }
             else
             {
-                updateCardPairsForComputer(i_CurrentGame, i_FirstCard, i_SecondCard);
+                updatePairsForComputer(i_CurrentGame, i_FirstCard, i_SecondCard);
                 Ex02.ConsoleUtils.Screen.Clear();
                 i_CurrentGame.BoardGame.DrawBoardGame();
                 System.Threading.Thread.Sleep(2000);
@@ -136,11 +136,11 @@ namespace B24_EX02
             {
                 i_CurrentGame.NotRevealedCards.Add(firstCardChosen);
                 i_CurrentGame.NotRevealedCards.Add(secondCardChosen);
-                updateCardPairsForComputer(i_CurrentGame, firstCardChosen, secondCardChosen);
+                updatePairsForComputer(i_CurrentGame, firstCardChosen, secondCardChosen);
             }
         }
 
-        private static void updateCardPairsForComputer(MemoryGame<char> i_CurrentGame, MemoryGameCards<char> i_FirstCard, MemoryGameCards<char> i_SecondCard)
+        private static void updatePairsForComputer(MemoryGame<char> i_CurrentGame, MemoryGameCards<char> i_FirstCard, MemoryGameCards<char> i_SecondCard)
         {
             int firstCardIndex = InputValidation.GetIndexOfCard(i_FirstCard.CardValue);
             int secondCardIndex = InputValidation.GetIndexOfCard(i_SecondCard.CardValue);
