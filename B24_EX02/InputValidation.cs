@@ -116,8 +116,10 @@ namespace B24_EX02
                     {
                         Console.WriteLine(Messages.GetMessage(MessageKey.InvalidInputOutOfBoundCellMessage));
                     }
-
-                    MemoryGameCards<char> chosenCell = i_CurrentGame.BoardGame.GetCardValueOnBoard(rowIndex, colIndex);
+                }
+                else
+                {
+                    Console.WriteLine(Messages.GetMessage(MessageKey.InvalidInputWrongFormatCellFirstMessage));
                 }
             }
         }

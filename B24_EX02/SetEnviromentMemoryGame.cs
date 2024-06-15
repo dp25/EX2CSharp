@@ -54,7 +54,7 @@ namespace B24_EX02
 
             while ((boardHeight * boardWidth) % 2 != 0);
 
-            MemoryGameBoard<char> board = new MemoryGameBoard<char>(boardWidth, boardHeight);
+            MemoryGameBoard<char> board = new MemoryGameBoard<char>(boardHeight, boardWidth);
             List<char> symbolCardsList = createSymbolCardsList(boardWidth * boardHeight);
             board.CreateMemoryGameBoard(symbolCardsList);
             MemoryGame<char> currentGame = new MemoryGame<char>(board, firstPlayer, secondPlayer, boardWidth, boardHeight);

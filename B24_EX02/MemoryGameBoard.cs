@@ -22,9 +22,9 @@ namespace B24_EX02
         /// <param name="i_NumColumns">Number of columns for the game board</param>
         internal MemoryGameBoard(int i_NumRows,  int i_NumColumns)
         {
-            this.r_NumOfBoardRows = i_NumRows;
-            this.r_NumOfBoardColumns = i_NumColumns;
-            this.m_GameBoard = null;
+            r_NumOfBoardRows = i_NumRows;
+            r_NumOfBoardColumns = i_NumColumns;
+            m_GameBoard = null;
         }
 
         internal int BoardWidth
@@ -59,10 +59,6 @@ namespace B24_EX02
         /// <returns> The value of the card on the board by row and column indices</returns>
         internal MemoryGameCards<T> GetCardValueOnBoard(int i_RowIndex, int i_ColIndex)
         {
-            if (i_RowIndex < 0 ||  i_ColIndex < 0 || i_RowIndex >= r_NumOfBoardRows || i_ColIndex >= r_NumOfBoardColumns)
-            {
-                throw new ArgumentOutOfRangeException("Card indices are out of the board's bound range.");
-            }
             return this.m_GameBoard[i_RowIndex, i_ColIndex];
         }
 

@@ -18,6 +18,7 @@ namespace B24_EX02
         {
             while (i_CurrentGame.NumberOfDiscoveredPairs < (i_CurrentGame.BoardGame.BoardWidth * i_CurrentGame.BoardGame.BoardHeight) / 2)
             {
+
                 MemoryGameTurnHandler.PlayTurn(i_CurrentGame.FirstPlayer, i_CurrentGame);
                 if (i_CurrentGame.NumberOfDiscoveredPairs < (i_CurrentGame.BoardGame.BoardWidth * i_CurrentGame.BoardGame.BoardHeight) / 2)
                 {
