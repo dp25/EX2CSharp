@@ -24,9 +24,6 @@ namespace B24_EX02
 
                 i_CurrentGame.CardsForComputerAIPlayer.Remove(i_FirstCard);
                 i_CurrentGame.CardsForComputerAIPlayer.Remove(i_SecondCard);
-
-                //i_FirstCard.IsFaceUp = true;
-                //i_SecondCard.IsFaceUp = true;
             }
             else
             {
@@ -41,8 +38,8 @@ namespace B24_EX02
             Ex02.ConsoleUtils.Screen.Clear();
             i_CurrentGame.BoardGame.DrawBoardGame();
             //System.Threading.Thread.Sleep(2000);
-            i_FirstCard.IsCardChosen = true;
-            i_SecondCard.IsCardChosen = true;
+            i_FirstCard.IsFaceUp = true;
+            i_SecondCard.IsFaceUp= true;
         }
 
         internal static void PlayTurn(Player i_CurrentPlayer, MemoryGame<char> i_CurrentGame)

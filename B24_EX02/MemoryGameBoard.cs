@@ -31,7 +31,7 @@ namespace B24_EX02
         {
             get 
             { 
-                return r_NumOfBoardRows; 
+                return r_NumOfBoardColumns; 
             }
         }
 
@@ -39,7 +39,7 @@ namespace B24_EX02
         {
             get
             {
-                return r_NumOfBoardColumns;
+                return r_NumOfBoardRows;
             }
         }
 
