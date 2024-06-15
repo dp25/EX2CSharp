@@ -124,10 +124,10 @@ namespace B24_EX02
             }
         }
 
-        internal static int GetIntFromCharLetter(char i_CurrentChar)
+        internal static int GetIndexOfCard(char i_Char)
         {
-            i_CurrentChar = char.ToUpper(i_CurrentChar);
-            return i_CurrentChar - 'A';
+            i_Char = char.ToUpper(i_Char);
+            return i_Char - 'A';
         }
     }
 }

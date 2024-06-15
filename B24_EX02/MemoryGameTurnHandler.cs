@@ -82,6 +82,7 @@ namespace B24_EX02
                 firstCard = InputValidation.GetValidCell(i_CurrentGame);
                 Ex02.ConsoleUtils.Screen.Clear();
                 i_CurrentGame.BoardGame.DrawBoardGame();
+                Console.WriteLine("{0}{1}", i_CurrentPlayer.PlayerName, Messages.GetMessage(MessageKey.TurnOfPlayer));
                 Console.WriteLine(Messages.GetMessage(MessageKey.EnterSecondCardMessage));
                 secondCard = InputValidation.GetValidCell(i_CurrentGame);
                 RevealCards(i_CurrentPlayer, i_CurrentGame, firstCard, secondCard);
@@ -90,35 +91,33 @@ namespace B24_EX02
 
         private static void computerWithAITurn(Player i_CurrentPlayer, MemoryGame<char> i_CurrentGame)
         {
-            MemoryGameCards<char> firstCardChosen;
+            MemoryGameCards<char> firstCardByComputerAI;
             MemoryGameCards<char> secondCardChosen;
             if (i_CurrentGame.CardsForComputerAIPlayer.Count == 0)
-            {   // AI list is empty guess first card and check if can chose a match pair with previous data 
-                Random cardRandom = new Random();
-                int chosenIndexCard = cardRandom.Next(0, i_CurrentGame.NotRevealedCards.Count);
-                firstCardChosen = i_CurrentGame.NotRevealedCards[chosenIndexCard];
-                int intOfCharValueInRandomCard = InputValidation.GetIntFromCharLetter(firstCardChosen.CardValue);
-                if (i_CurrentGame.RevealedCards[intOfCharValueInRandomCard] != null && firstCardChosen != i_CurrentGame.RevealedCards[intOfCharValueInRandomCard])
+            {   
+                Random randomCard = new Random();
+                int chosenRandomCard = randomCard.Next(0, i_CurrentGame.NotRevealedCards.Count);
+                firstCardByComputerAI = i_CurrentGame.NotRevealedCards[chosenRandomCard];
+                int indexOfRandomCard = InputValidation.GetIndexOfCard(firstCardByComputerAI.CardValue);
+                if (i_CurrentGame.RevealedCards[indexOfRandomCard] != null && firstCardByComputerAI != i_CurrentGame.RevealedCards[indexOfRandomCard])
                 {
-                    secondCardChosen = i_CurrentGame.RevealedCards[intOfCharValueInRandomCard];
-                    firstCardChosen.IsCardChosen = true;
+                    secondCardChosen = i_CurrentGame.RevealedCards[indexOfRandomCard];
+                    firstCardByComputerAI.IsCardChosen = true;
                     secondCardChosen.IsCardChosen = true;
-                    RevealCards(i_CurrentPlayer, i_CurrentGame, firstCardChosen, secondCardChosen);
+                    RevealCards(i_CurrentPlayer, i_CurrentGame, firstCardByComputerAI, secondCardChosen);
                 }
                 else
                 {
-                    // Don't have enough data to play second turn with AI
                     computerWithoutAITurn(i_CurrentPlayer, i_CurrentGame);
                 }
             }
             else
             {
-                // Don't have enough data to play turn with AI
-                firstCardChosen = i_CurrentGame.CardsForComputerAIPlayer[0];
-                secondCardChosen = i_CurrentGame.RevealedCards[InputValidation.GetIntFromCharLetter(firstCardChosen.CardValue)];
-                firstCardChosen.IsCardChosen = true;
+                firstCardByComputerAI = i_CurrentGame.CardsForComputerAIPlayer[0];
+                secondCardChosen = i_CurrentGame.RevealedCards[InputValidation.GetIndexOfCard(firstCardByComputerAI.CardValue)];
+                firstCardByComputerAI.IsCardChosen = true;
                 secondCardChosen.IsCardChosen = true;
-                RevealCards(i_CurrentPlayer, i_CurrentGame, firstCardChosen, secondCardChosen);
+                RevealCards(i_CurrentPlayer, i_CurrentGame, firstCardByComputerAI, secondCardChosen);
             }
         }
 
@@ -143,28 +142,28 @@ namespace B24_EX02
 
         private static void updateCardPairsForComputer(MemoryGame<char> i_CurrentGame, MemoryGameCards<char> i_FirstCard, MemoryGameCards<char> i_SecondCard)
         {
-            int indexOfFirstCard = InputValidation.GetIntFromCharLetter(i_FirstCard.CardValue);
-            int indexOfSecondCard = InputValidation.GetIntFromCharLetter(i_SecondCard.CardValue);
+            int firstCardIndex = InputValidation.GetIndexOfCard(i_FirstCard.CardValue);
+            int secondCardIndex = InputValidation.GetIndexOfCard(i_SecondCard.CardValue);
 
-            if (i_CurrentGame.RevealedCards[indexOfFirstCard] == null)
+            if (i_CurrentGame.RevealedCards[firstCardIndex] == null)
             {
-                i_CurrentGame.RevealedCards[indexOfFirstCard] = i_FirstCard;
+                i_CurrentGame.RevealedCards[firstCardIndex] = i_FirstCard;
             }
             else
             {
-                if (i_CurrentGame.RevealedCards[indexOfFirstCard] != i_FirstCard && !i_CurrentGame.NotRevealedCards.Contains(i_FirstCard))
+                if (i_CurrentGame.RevealedCards[firstCardIndex] != i_FirstCard && !i_CurrentGame.NotRevealedCards.Contains(i_FirstCard))
                 {
                     i_CurrentGame.NotRevealedCards.Add(i_FirstCard);
                 }
             }
 
-            if (i_CurrentGame.RevealedCards[indexOfSecondCard] == null)
+            if (i_CurrentGame.RevealedCards[secondCardIndex] == null)
             {
-                i_CurrentGame.RevealedCards[indexOfSecondCard] = i_SecondCard;
+                i_CurrentGame.RevealedCards[secondCardIndex] = i_SecondCard;
             }
             else
             {
-                if (i_CurrentGame.RevealedCards[indexOfSecondCard] != i_SecondCard && !i_CurrentGame.NotRevealedCards.Contains(i_SecondCard))
+                if (i_CurrentGame.RevealedCards[secondCardIndex] != i_SecondCard && !i_CurrentGame.NotRevealedCards.Contains(i_SecondCard))
                 {
                     i_CurrentGame.NotRevealedCards.Add(i_SecondCard);
                 }

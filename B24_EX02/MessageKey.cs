@@ -10,11 +10,8 @@ namespace B24_EX02
     {
         RematchMessage,
         GameOverMessage,
-        GameEndTieMessage,
-        GameEndStatisticsFirstMessage,
-        GameEndStatisticsSecondMessage,
-        GameEndStatisticsThirdMessage,
-        GameEndWinningMessage,
+        TieGameMessage,
+        WinnerMessage,
         InputFirstNamePlayerMessage,
         InputBoardWidthMessage,
         InputBoardHeightMessage,

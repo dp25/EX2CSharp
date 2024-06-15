@@ -37,19 +37,13 @@ namespace B24_EX02
             StringBuilder gameResultStringBuilder = new StringBuilder();
             gameResultStringBuilder.Append(Messages.GetMessage(MessageKey.GameOverMessage));
             gameResultStringBuilder.AppendLine();
-            gameResultStringBuilder.AppendFormat("{0}\"{1}\"{2} {3}{4}",
-                Messages.GetMessage(MessageKey.GameEndStatisticsFirstMessage),
+            gameResultStringBuilder.AppendFormat("{0} with {1} points",
                 i_CurrentGame.FirstPlayer.PlayerName,
-                Messages.GetMessage(MessageKey.GameEndStatisticsSecondMessage),
-                i_CurrentGame.FirstPlayer.PlayerPoints,
-                Messages.GetMessage(MessageKey.GameEndStatisticsThirdMessage));
+                i_CurrentGame.FirstPlayer.PlayerPoints);
             gameResultStringBuilder.AppendLine();
-            gameResultStringBuilder.AppendFormat("{0}\"{1}\"{2} {3}{4}",
-                Messages.GetMessage(MessageKey.GameEndStatisticsFirstMessage),
+            gameResultStringBuilder.AppendFormat("{0} with {1} points",
                 i_CurrentGame.SecondPlayer.PlayerName,
-                Messages.GetMessage(MessageKey.GameEndStatisticsSecondMessage),
-                i_CurrentGame.SecondPlayer.PlayerPoints,
-                Messages.GetMessage(MessageKey.GameEndStatisticsThirdMessage));
+                i_CurrentGame.SecondPlayer.PlayerPoints);
 
             if (i_CurrentGame.FirstPlayer.PlayerPoints > i_CurrentGame.SecondPlayer.PlayerPoints)
             {
@@ -64,7 +58,7 @@ namespace B24_EX02
                 else
                 {
                     gameResultStringBuilder.AppendLine();
-                    gameResultStringBuilder.Append(Messages.GetMessage(MessageKey.GameEndTieMessage));
+                    gameResultStringBuilder.Append(Messages.GetMessage(MessageKey.TieGameMessage));
                 }
             }
 
@@ -74,7 +68,7 @@ namespace B24_EX02
                 gameResultStringBuilder.AppendFormat("{0}\"{1}\"{2}",
                     Messages.GetMessage(MessageKey.GameEndStatisticsFirstMessage),
                     matchWinnerName,
-                    Messages.GetMessage(MessageKey.GameEndWinningMessage));
+                    Messages.GetMessage(MessageKey.WinnerMessage));
             }
 
             Console.WriteLine(gameResultStringBuilder);

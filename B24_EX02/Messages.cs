@@ -10,13 +10,9 @@ namespace B24_EX02
     {
         private static readonly Dictionary<MessageKey, string> s_Messages = new Dictionary<MessageKey, string>
         {
-            { MessageKey.GameEndTieMessage, "It's a Tie!" },
+            
             { MessageKey.EnterFirstCardMessage, "Please choose 2 cards.Enter first card you want to choose: " },
-            { MessageKey.EnterSecondCardMessage, "Please insert second card:" },
-            { MessageKey.GameEndStatisticsFirstMessage, "The Player " },
-            { MessageKey.GameEndStatisticsSecondMessage, " got" },
-            { MessageKey.GameEndStatisticsThirdMessage, " points" },
-            { MessageKey.GameEndWinningMessage, " IS THE WINNER!!!" },
+            { MessageKey.EnterSecondCardMessage, "Please insert second card:" }, 
             { MessageKey.InputFirstNamePlayerMessage, "Please enter your name: " },
             { MessageKey.InputBoardWidthMessage, "Please enter board width: " },
             { MessageKey.InputBoardHeightMessage, "Please enter board height: " },
@@ -30,6 +26,8 @@ namespace B24_EX02
             { MessageKey.InputSecondNamePlayerMessage, "Please enter the name of the second player: " },
             { MessageKey.TurnOfPlayer, "'s turn:" },
             { MessageKey.RematchMessage, "Do you want a rematch? please insert y / n" },
+            { MessageKey.WinnerMessage, " IS THE WINNER!!!" },
+            { MessageKey.TieGameMessage, "It's a Tie!" },
             { MessageKey.GameOverMessage, "Game Over!" }
         };
 
