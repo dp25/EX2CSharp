@@ -14,12 +14,6 @@ namespace B24_EX02
         private MemoryGameCards<T>[,] m_GameBoard; 
         private static readonly Random sr_RandomCardOnBoard = new Random();
 
-        /// <summary>
-        /// The memory board constructor.
-        /// Initializes a new instance of the MemoryGameBoard class with specified dimensions.
-        /// </summary>
-        /// <param name="i_NumRows">Number of rows for the game board</param>
-        /// <param name="i_NumColumns">Number of columns for the game board</param>
         internal MemoryGameBoard(int i_NumRows,  int i_NumColumns)
         {
             r_NumOfBoardRows = i_NumRows;
@@ -51,22 +45,11 @@ namespace B24_EX02
             }
         }
 
-        /// <summary>
-        /// The method return the value of the card by its position on the board
-        /// </summary>
-        /// <param name="i_RowIndex">Row index of the card</param>
-        /// <param name="i_ColIndex">Column index of the card</param>
-        /// <returns> The value of the card on the board by row and column indices</returns>
         internal MemoryGameCards<T> GetCardValueOnBoard(int i_RowIndex, int i_ColIndex)
         {
             return this.m_GameBoard[i_RowIndex, i_ColIndex];
         }
 
-        /// <summary>
-        /// The method randomly places cards on the game board.
-        /// After placing a card on the board the method removes the card from the card list.
-        /// </summary>
-        /// <param name="i_ListOfCard">List of cards values to be placed on the board</param>
         internal void CreateMemoryGameBoard (List<T> i_ListOfCard)
         {
             this.m_GameBoard = new MemoryGameCards<T>[this.r_NumOfBoardRows, this.r_NumOfBoardColumns];
@@ -82,9 +65,6 @@ namespace B24_EX02
             }
         }
 
-        /// <summary>
-        /// Draws the current status of the board
-        /// </summary>
         internal void DrawBoardGame()
         {
             StringBuilder memoryGameBoard = new StringBuilder();

@@ -25,16 +25,8 @@ namespace B24_EX02
                 i_CurrentGame.CardsForComputerAIPlayer.Remove(i_FirstCard);
                 i_CurrentGame.CardsForComputerAIPlayer.Remove(i_SecondCard);
 
-                Ex02.ConsoleUtils.Screen.Clear();
-                i_CurrentGame.BoardGame.DrawBoardGame();
-                System.Threading.Thread.Sleep(2000);
-                i_FirstCard.IsCardChosen = false;
-                i_SecondCard.IsCardChosen = false;
-                Ex02.ConsoleUtils.Screen.Clear();
-                i_CurrentGame.BoardGame.DrawBoardGame();
-                i_FirstCard.IsFaceUp = true;
-                i_SecondCard.IsFaceUp = true;
-                
+                updateDisplayCardsAndBoard(i_CurrentGame, i_FirstCard, i_SecondCard);
+
                 if (i_CurrentGame.NumberOfDiscoveredPairs < (i_CurrentGame.BoardGame.BoardWidth * i_CurrentGame.BoardGame.BoardHeight) / 2)
                 {
                     PlayTurn(i_Player, i_CurrentGame);
@@ -43,16 +35,21 @@ namespace B24_EX02
             else
             {
                 updatePairsForComputer(i_CurrentGame, i_FirstCard, i_SecondCard);
-                Ex02.ConsoleUtils.Screen.Clear();
-                i_CurrentGame.BoardGame.DrawBoardGame();
-                System.Threading.Thread.Sleep(2000);
-                i_FirstCard.IsCardChosen = false;
-                i_SecondCard.IsCardChosen = false;
-                Ex02.ConsoleUtils.Screen.Clear();
-                i_CurrentGame.BoardGame.DrawBoardGame();
-                i_FirstCard.IsFaceUp = true;
-                i_SecondCard.IsFaceUp = true;
+                updateDisplayCardsAndBoard(i_CurrentGame, i_FirstCard, i_SecondCard);
             }
+        }
+
+        private static void updateDisplayCardsAndBoard(MemoryGame<char> i_CurrentGame, MemoryGameCards<char> i_FirstCard, MemoryGameCards<char> i_SecondCard)
+        {
+            Ex02.ConsoleUtils.Screen.Clear();
+            i_CurrentGame.BoardGame.DrawBoardGame();
+            System.Threading.Thread.Sleep(2000);
+            i_FirstCard.IsCardChosen = false;
+            i_SecondCard.IsCardChosen = false;
+            Ex02.ConsoleUtils.Screen.Clear();
+            i_CurrentGame.BoardGame.DrawBoardGame();
+            i_FirstCard.IsFaceUp = true;
+            i_SecondCard.IsFaceUp = true;
         }
 
         internal static void PlayTurn(Player i_CurrentPlayer, MemoryGame<char> i_CurrentGame)

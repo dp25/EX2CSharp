@@ -60,7 +60,7 @@ namespace B24_EX02
                 {
                     if (userInput == "y")
                     {
-                        secondPlayerName = "BobTheComputer";
+                        secondPlayerName = "Bob The Computer";
                         isComputer = true;
                     }
                     else

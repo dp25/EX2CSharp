@@ -16,7 +16,7 @@ namespace B24_EX02
             }
 
             List<char> cardSymbolsList = new List<char>(i_NumOfCards);
-            // Fill the list with pairs of card symbols
+
             for (int i = 0; i < i_NumOfCards / 2; i++)
             {
                 char symbol = (char)('A' + i);
