@@ -26,12 +26,12 @@ namespace B24_EX02
                 }
             }
 
-            printGameStatistics(i_CurrentGame);
+            displayGameStatistics(i_CurrentGame);
             InputValidation.CheckRematch(i_CurrentGame.FirstPlayer, i_CurrentGame.SecondPlayer);
             Console.WriteLine();
         }
 
-        private static void printGameStatistics(MemoryGame<char> i_CurrentGame)
+        private static void displayGameStatistics(MemoryGame<char> i_CurrentGame)
         {
             string matchWinnerName = null;
             StringBuilder gameResultStringBuilder = new StringBuilder();
@@ -65,8 +65,7 @@ namespace B24_EX02
             if (matchWinnerName != null)
             {
                 gameResultStringBuilder.AppendLine();
-                gameResultStringBuilder.AppendFormat("{0}\"{1}\"{2}",
-                    Messages.GetMessage(MessageKey.GameEndStatisticsFirstMessage),
+                gameResultStringBuilder.AppendFormat("{0}{1}",
                     matchWinnerName,
                     Messages.GetMessage(MessageKey.WinnerMessage));
             }
