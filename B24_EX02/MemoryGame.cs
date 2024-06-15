@@ -25,8 +25,6 @@ namespace B24_EX02
             r_RevealedCards = new MemoryGameCards<T>[((i_NumRows * i_NumColumns) / 2)];
             r_NotRevealedCards = getCardsForComputerPlayer();
             r_CardsForComputerAIPlayer = new List<MemoryGameCards<T>>();
-
-
         }
 
         internal Player FirstPlayer

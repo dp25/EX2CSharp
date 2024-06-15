@@ -1,0 +1,9 @@
+C:\Users\david\Desktop\David\CS\year_3\CSharp\Ex2\B24 EX02 Nimrod 315329763 David 204911424\B24_EX02\bin\Debug\B24_EX02.exe.config
+C:\Users\david\Desktop\David\CS\year_3\CSharp\Ex2\B24 EX02 Nimrod 315329763 David 204911424\B24_EX02\bin\Debug\B24_EX02.exe
+C:\Users\david\Desktop\David\CS\year_3\CSharp\Ex2\B24 EX02 Nimrod 315329763 David 204911424\B24_EX02\bin\Debug\B24_EX02.pdb
+C:\Users\david\Desktop\David\CS\year_3\CSharp\Ex2\B24 EX02 Nimrod 315329763 David 204911424\B24_EX02\bin\Debug\Ex02.ConsoleUtils.dll
+C:\Users\david\Desktop\David\CS\year_3\CSharp\Ex2\B24 EX02 Nimrod 315329763 David 204911424\B24_EX02\obj\Debug\B24_EX02.csproj.AssemblyReference.cache
+C:\Users\david\Desktop\David\CS\year_3\CSharp\Ex2\B24 EX02 Nimrod 315329763 David 204911424\B24_EX02\obj\Debug\B24_EX02.csproj.CoreCompileInputs.cache
+C:\Users\david\Desktop\David\CS\year_3\CSharp\Ex2\B24 EX02 Nimrod 315329763 David 204911424\B24_EX02\obj\Debug\B24_EX02.csproj.Up2Date
+C:\Users\david\Desktop\David\CS\year_3\CSharp\Ex2\B24 EX02 Nimrod 315329763 David 204911424\B24_EX02\obj\Debug\B24_EX02.exe
+C:\Users\david\Desktop\David\CS\year_3\CSharp\Ex2\B24 EX02 Nimrod 315329763 David 204911424\B24_EX02\obj\Debug\B24_EX02.pdb

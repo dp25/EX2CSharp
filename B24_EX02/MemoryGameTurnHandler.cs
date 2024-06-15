@@ -34,8 +34,11 @@ namespace B24_EX02
                 i_CurrentGame.BoardGame.DrawBoardGame();
                 i_FirstCard.IsFaceUp = true;
                 i_SecondCard.IsFaceUp = true;
-
-                PlayTurn(i_Player, i_CurrentGame);
+                
+                if (i_CurrentGame.NumberOfDiscoveredPairs < (i_CurrentGame.BoardGame.BoardWidth * i_CurrentGame.BoardGame.BoardHeight) / 2)
+                {
+                    PlayTurn(i_Player, i_CurrentGame);
+                }
             }
             else
             {
@@ -58,12 +61,11 @@ namespace B24_EX02
             MemoryGameCards<char> secondCard = null;
             Ex02.ConsoleUtils.Screen.Clear();
             i_CurrentGame.BoardGame.DrawBoardGame();
-            Console.WriteLine("{0}\"{1}\"", Messages.GetMessage(MessageKey.TurnOfPlayer), i_CurrentPlayer.PlayerName);
+            Console.WriteLine("{0}{1}", i_CurrentPlayer.PlayerName, Messages.GetMessage(MessageKey.TurnOfPlayer));
             if (i_CurrentPlayer.IsComputer)
             {
-                // Flip coin to choose if computer guess or choose from AI list, to change AI level expend the random range
-                int coinResult = sr_Random.Next(0, 2);
-                Console.WriteLine(Messages.GetMessage(MessageKey.ComputerThinkMessage));
+                int coinResult = sr_Random.Next(0, 4);
+                Console.WriteLine(Messages.GetMessage(MessageKey.ComputerBufferingMessage));
                 System.Threading.Thread.Sleep(3000);
                 if (coinResult == 1)
                 {
@@ -76,11 +78,11 @@ namespace B24_EX02
             }
             else
             {
-                Console.WriteLine(Messages.GetMessage(MessageKey.ChoseTwoCellsMessage));
+                Console.WriteLine(Messages.GetMessage(MessageKey.EnterFirstCardMessage));
                 firstCard = InputValidation.GetValidCell(i_CurrentGame);
                 Ex02.ConsoleUtils.Screen.Clear();
                 i_CurrentGame.BoardGame.DrawBoardGame();
-                Console.WriteLine(Messages.GetMessage(MessageKey.SecondCellToOpenMessage));
+                Console.WriteLine(Messages.GetMessage(MessageKey.EnterSecondCardMessage));
                 secondCard = InputValidation.GetValidCell(i_CurrentGame);
                 RevealCards(i_CurrentPlayer, i_CurrentGame, firstCard, secondCard);
             }

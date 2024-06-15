@@ -10,27 +10,27 @@ namespace B24_EX02
     {
         private static readonly Dictionary<MessageKey, string> s_Messages = new Dictionary<MessageKey, string>
         {
-            { MessageKey.RematchMessage, "Would you like to play another match? please insert y / n" },
-            { MessageKey.GameEndMessage, "The Game End!" },
-            { MessageKey.GameEndTieMessage, "The game finish on tie" },
+            { MessageKey.GameEndTieMessage, "It's a Tie!" },
+            { MessageKey.EnterFirstCardMessage, "Please choose 2 cards.Enter first card you want to choose: " },
+            { MessageKey.EnterSecondCardMessage, "Please insert second card:" },
             { MessageKey.GameEndStatisticsFirstMessage, "The Player " },
             { MessageKey.GameEndStatisticsSecondMessage, " got" },
             { MessageKey.GameEndStatisticsThirdMessage, " points" },
-            { MessageKey.GameEndWinningMessage, " won the game!" },
-            { MessageKey.InputNameMessage, "Please enter your name: " },
-            { MessageKey.InputBoardWidthMessage, "Please enter the board width: " },
-            { MessageKey.InputBoardHeightMessage, "Please enter the board height: " },
-            { MessageKey.InputNeedHaveEvenCellsMessage, "The number of cells needs to be even" },
-            { MessageKey.InvalidInputMessage, "You entered an invalid input, please try again" },
-            { MessageKey.AskIfSecondPlayerIsComputerMessage, "Do you want to play against the computer? Answer y / n" },
-            { MessageKey.ComputerThinkMessage, "The computer thinks!" },
-            { MessageKey.ChoseTwoCellsMessage, "Please choose two cells: " },
-            { MessageKey.SecondCellToOpenMessage, "Please choose second cell to open" },
-            { MessageKey.InvalidInputChosenOpenedCellMessage, "You choose an open cell, please choose another" },
-            { MessageKey.InvalidInputOutOfBoundCellMessage, "Your chosen cell is out of board game, please choose another cell" },
-            { MessageKey.InvalidInputWrongFormatCellFirstMessage, "Your input is incorrect, please enter your chosen cell in the following " },
-            { MessageKey.InputSecondNamePlayerMessage, "Please enter second player name" },
-            { MessageKey.TurnOfPlayer, "This is the turn of " }
+            { MessageKey.GameEndWinningMessage, " IS THE WINNER!!!" },
+            { MessageKey.InputFirstNamePlayerMessage, "Please enter your name: " },
+            { MessageKey.InputBoardWidthMessage, "Please enter board width: " },
+            { MessageKey.InputBoardHeightMessage, "Please enter board height: " },
+            { MessageKey.NotEvenNumOfCellsMessage, "Number of cells on the board must be even. Try again: " },
+            { MessageKey.InvalidInputMessage, "Entered an invalid input. Please try again" },
+            { MessageKey.RequestToPlayAgainstComputerMessage, "Do you want to play against the computer? Answer y / n" },
+            { MessageKey.ComputerBufferingMessage, "Buffering..." },
+            { MessageKey.InvalidChoiseOfCardMessage, "This card cannot be chosen. Try a different card:" },
+            { MessageKey.InvalidInputOutOfBoundCellMessage, "This card does not exist. Try a different card: " },
+            { MessageKey.InvalidFormatOfCardMessage, "This is not a card. The format: [A-F][1-6]. Try again: " },
+            { MessageKey.InputSecondNamePlayerMessage, "Please enter the name of the second player: " },
+            { MessageKey.TurnOfPlayer, "'s turn:" },
+            { MessageKey.RematchMessage, "Do you want a rematch? please insert y / n" },
+            { MessageKey.GameOverMessage, "Game Over!" }
         };
 
         public static string GetMessage(MessageKey key)

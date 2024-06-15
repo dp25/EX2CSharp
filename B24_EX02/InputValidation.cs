@@ -48,7 +48,7 @@ namespace B24_EX02
 
         internal static Player GetSecondPlayer()
         {
-            Console.WriteLine(Messages.GetMessage(MessageKey.AskIfSecondPlayerIsComputerMessage));
+            Console.WriteLine(Messages.GetMessage(MessageKey.RequestToPlayAgainstComputerMessage));
 
             while (true)
             {
@@ -104,7 +104,7 @@ namespace B24_EX02
                     {
                         if (i_CurrentGame.BoardGame.GetCardValueOnBoard(rowIndex, colIndex).PairOfCardsDiscovered)
                         {
-                            Console.WriteLine(Messages.GetMessage(MessageKey.InvalidInputChosenOpenedCellMessage));
+                            Console.WriteLine(Messages.GetMessage(MessageKey.InvalidChoiseOfCardMessage));
                         }
                         else 
                         {
@@ -119,7 +119,7 @@ namespace B24_EX02
                 }
                 else
                 {
-                    Console.WriteLine(Messages.GetMessage(MessageKey.InvalidInputWrongFormatCellFirstMessage));
+                    Console.WriteLine(Messages.GetMessage(MessageKey.InvalidFormatOfCardMessage));
                 }
             }
         }

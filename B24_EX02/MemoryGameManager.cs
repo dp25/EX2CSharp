@@ -35,7 +35,7 @@ namespace B24_EX02
         {
             string matchWinnerName = null;
             StringBuilder gameResultStringBuilder = new StringBuilder();
-            gameResultStringBuilder.Append(Messages.GetMessage(MessageKey.GameEndMessage));
+            gameResultStringBuilder.Append(Messages.GetMessage(MessageKey.GameOverMessage));
             gameResultStringBuilder.AppendLine();
             gameResultStringBuilder.AppendFormat("{0}\"{1}\"{2} {3}{4}",
                 Messages.GetMessage(MessageKey.GameEndStatisticsFirstMessage),

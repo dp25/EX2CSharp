@@ -34,7 +34,7 @@ namespace B24_EX02
             int boardWidth, boardHeight;
             if (!i_IsRematch)
             {
-                Console.WriteLine(Messages.GetMessage(MessageKey.InputNameMessage));
+                Console.WriteLine(Messages.GetMessage(MessageKey.InputFirstNamePlayerMessage));
                 string firstPlayerName = Console.ReadLine();
                 firstPlayer = new Player(firstPlayerName, false);
                 secondPlayer = InputValidation.GetSecondPlayer();
@@ -48,7 +48,7 @@ namespace B24_EX02
                 boardHeight = InputValidation.GetBoardDimensions();
                 if ((boardHeight * boardWidth) % 2 != 0)
                 {
-                    Console.WriteLine(Messages.GetMessage(MessageKey.InputNeedHaveEvenCellsMessage));
+                    Console.WriteLine(Messages.GetMessage(MessageKey.NotEvenNumOfCellsMessage));
                 }
             }
 
