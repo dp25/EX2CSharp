@@ -20,9 +20,9 @@ namespace B24_EX02
             r_CardValue = i_CardValue;
             r_CardRowIndex = i_CardRowIndex;
             r_CardColumnIndex = i_CardColumnIndex;
-            m_CardIsFaceUp = false;
-            m_PairOfCardsDiscovered = false;
-            m_IsCardChosen = false;
+            this.m_CardIsFaceUp = false;
+            this.m_PairOfCardsDiscovered = false;
+            this.m_IsCardChosen = false;
         }
 
         internal T CardValue

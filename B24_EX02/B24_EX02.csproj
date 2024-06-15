@@ -36,7 +36,17 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="InputValidation.cs" />
+    <Compile Include="MemoryGame.cs" />
+    <Compile Include="MemoryGameBoard.cs" />
+    <Compile Include="MemoryGameCards.cs" />
+    <Compile Include="MemoryGameManager.cs" />
+    <Compile Include="MemoryGameTurnHandler.cs" />
+    <Compile Include="MessageKey.cs" />
+    <Compile Include="Messages.cs" />
     <Compile Include="Player.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="SetEnviromentMemoryGame.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Ex02.ConsoleUtils">

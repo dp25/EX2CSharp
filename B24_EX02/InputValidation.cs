@@ -78,6 +78,8 @@ namespace B24_EX02
 
         internal static MemoryGameCards<char> GetValidCell(MemoryGame<char> i_CurrentGame)
         {
+            char colChar = ' ';
+            char rowChar = ' ';
             while (true)
             {
                 string input = Console.ReadLine();
@@ -87,40 +89,36 @@ namespace B24_EX02
                     Environment.Exit(0);
                 }
 
-                if (input.Length != 2)
+                if (input.Length == 2 && input != null)
                 {
-                    Console.WriteLine(Messages.GetMessage(MessageKey.InvalidInputWrongFormatCellFirstMessage));
-                    continue; 
+                    colChar = input[0];
+                    rowChar = input[1];
                 }
 
-                char colChar = input[0];
-                char rowChar = input[1];
-
-                if (!(char.IsDigit(rowChar) && char.IsUpper(colChar)))
+                if ((char.IsDigit(rowChar) && char.IsUpper(colChar)) && (input.Length == 2 && input != null))
                 {
-                    Console.WriteLine(Messages.GetMessage(MessageKey.InvalidInputWrongFormatCellFirstMessage));
-                    continue;
+                    int rowIndex = rowChar - '1';
+                    int colIndex = colChar - 'A';
+
+                    if (rowIndex >= 0 && rowIndex < i_CurrentGame.BoardGame.BoardHeight && colIndex >= 0 && colIndex < i_CurrentGame.BoardGame.BoardWidth)
+                    {
+                        if (i_CurrentGame.BoardGame.GetCardValueOnBoard(rowIndex, colIndex).PairOfCardsDiscovered)
+                        {
+                            Console.WriteLine(Messages.GetMessage(MessageKey.InvalidInputChosenOpenedCellMessage));
+                        }
+                        else 
+                        {
+                            i_CurrentGame.BoardGame.GetCardValueOnBoard(rowIndex, colIndex).IsCardChosen = true;
+                            return i_CurrentGame.BoardGame.GetCardValueOnBoard(rowIndex, colIndex);
+                        }
+                    }
+                    else 
+                    {
+                        Console.WriteLine(Messages.GetMessage(MessageKey.InvalidInputOutOfBoundCellMessage));
+                    }
+
+                    MemoryGameCards<char> chosenCell = i_CurrentGame.BoardGame.GetCardValueOnBoard(rowIndex, colIndex);
                 }
-
-                int rowIndex = rowChar - '1';
-                int colIndex = colChar - 'A';
-
-                if (rowIndex < 0 || rowIndex >= i_CurrentGame.BoardGame.BoardHeight || colIndex < 0 || colIndex >= i_CurrentGame.BoardGame.BoardWidth)
-                {
-                    Console.WriteLine(Messages.GetMessage(MessageKey.InvalidInputOutOfBoundCellMessage));
-                    continue;
-                }
-
-                MemoryGameCards<char> chosenCell = i_CurrentGame.BoardGame.GetCardValueOnBoard(rowIndex, colIndex);
-
-                if (chosenCell.PairOfCardsDiscovered)
-                {
-                    Console.WriteLine(Messages.GetMessage(MessageKey.InvalidInputChosenOpenedCellMessage));
-                    continue;
-                }
-
-                chosenCell.IsCardChosen = true;
-                return chosenCell;
             }
         }
 
